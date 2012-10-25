@@ -17,13 +17,13 @@
 
 package org.openmole.ide.plugin.domain.bounded
 
-import org.openmole.core.model.domain.IBounded
-import org.openmole.plugin.domain.bounded.Bounded
+import org.openmole.core.model.domain._
+import org.openmole.plugin.domain.bounded._
 import org.openmole.misc.exception.UserBadDataError
 import org.openmole.misc.tools.io.FromString._
 import org.openmole.core.model.data.Prototype
 import org.openmole.ide.core.model.dataproxy.IPrototypeDataProxyUI
-import org.openmole.core.model.domain.IDomain
+import org.openmole.core.model.domain._
 import org.openmole.ide.core.model.data.IDomainDataUI
 
 class BoundedDomainDataUI(val min: String = "",
@@ -36,7 +36,7 @@ class BoundedDomainDataUI(val min: String = "",
 
   //Fix me with 2.10 reflexion
   // manifest[IDomain[Double] with IBounded[Double]]
-  def coreClass = classOf[IDomain[Double]]
+  def coreClass = classOf[Domain[Double]]
 
   def imagePath = "img/domain_range.png"
 

@@ -26,7 +26,7 @@ class UniformDistributionDataUI(val size: Int = 1,
   }
 
   //FIXME scala 2.10, return the correct class depending on the type
-  def coreClass = classOf[FiniteUniformIntDistribution]
+  def coreClass = classOf[UniformIntDistribution]
 
   def imagePath = "img/domain_uniform_distribution.png"
 

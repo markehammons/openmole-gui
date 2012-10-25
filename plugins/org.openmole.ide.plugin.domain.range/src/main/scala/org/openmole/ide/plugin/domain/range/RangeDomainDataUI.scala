@@ -18,7 +18,7 @@
 package org.openmole.ide.plugin.domain.range
 
 import org.openmole.core.model.data.Prototype
-import org.openmole.core.model.domain.IDomain
+import org.openmole.core.model.domain._
 import org.openmole.ide.core.model.dataproxy.IPrototypeDataProxyUI
 import org.openmole.ide.core.model.data.IDomainDataUI
 import org.openmole.plugin.domain.range._
@@ -30,7 +30,7 @@ class RangeDomainDataUI(
     val max: String = "",
     val step: String = "1") extends IDomainDataUI {
 
-  override def coreObject(prototypeObject: Prototype[_]): IDomain[_] = {
+  override def coreObject(prototypeObject: Prototype[_]): Domain[_] = {
     if (prototypeObject.`type`.erasure == java.lang.Integer.TYPE) new Range[Int](min, max, step)
     else if (prototypeObject.`type`.erasure == java.lang.Double.TYPE) new Range[Double](min, max, step)
     else if (prototypeObject.`type`.erasure == classOf[java.math.BigDecimal]) new Range[java.math.BigDecimal](min, max, step)
@@ -38,7 +38,7 @@ class RangeDomainDataUI(
     else throw new UserBadDataError("Unsupported range type " + prototypeObject.`type`.erasure)
   }
 
-  def coreClass = classOf[IDomain[_]]
+  def coreClass = classOf[Domain[_]]
 
   def buildPanelUI = new RangeDomainPanelUI(this)
 
